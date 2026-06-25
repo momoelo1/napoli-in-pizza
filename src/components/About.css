@@ -1,0 +1,23 @@
+.about {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  color: var(--cream);
+}
+
+.about__title {
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: center;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin: 8px 0 24px;
+}
+
+.about__text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 18px;
+  text-align: center;
+}

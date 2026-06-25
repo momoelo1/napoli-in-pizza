@@ -1,0 +1,75 @@
+.where {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  color: var(--cream);
+}
+
+.where__title {
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: center;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin: 8px 0 28px;
+}
+
+.where__block {
+  text-align: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.where__block:last-child { border-bottom: none; }
+
+.where__label {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.where__value {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+}
+
+.where__phone {
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.where__btn {
+  display: inline-block;
+  padding: 9px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+.where__btn:hover,
+.where__btn:active {
+  background: var(--gold);
+  color: var(--brown);
+}
+
+.where__hours {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 360px;
+}
+
+.where__hours-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 0;
+  font-size: 1rem;
+}
+.where__hours-row span:first-child { color: var(--gold-soft); }

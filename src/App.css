@@ -1,0 +1,34 @@
+body, html {
+  background-color: #251404;
+}
+
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ── Header with home logo ── */
+.app__header {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 4px;
+}
+
+.app__home {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.logo {
+  width: 140px;
+  max-width: 45vw;
+  height: auto;
+}
+
+/* ── Main content area; bottom padding clears the fixed tab bar ── */
+.app__main {
+  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+}

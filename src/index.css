@@ -1,0 +1,18 @@
+/* ── Global color tokens (brown bg + gold logo palette) ── */
+:root {
+  --brown: #251404;
+  --brown-soft: #2f1c08;
+  --cream: #f3e9d2;
+  --gold: #d8ad5b;
+  --gold-soft: #b89b6e;
+  --line: rgba(216, 173, 91, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
