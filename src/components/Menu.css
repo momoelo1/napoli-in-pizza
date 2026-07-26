@@ -65,6 +65,26 @@
   margin: 0 0 14px;
 }
 
+/* ── Group separator (sub-heading inside a category, e.g. Pizze) ── */
+.menu__group + .menu__group { margin-top: 22px; }
+
+.menu__group-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-soft);
+  margin: 0 0 6px;
+}
+.menu__group-title::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--line);
+}
+
 .menu__list {
   list-style: none;
   margin: 0;

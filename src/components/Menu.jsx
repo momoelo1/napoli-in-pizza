@@ -10,6 +10,31 @@ const TAGS = {
 // Build a URL-safe id from a category name, used for the sticky-nav anchors.
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
+// One item row: name (+ tag pills), dotted leader and optional price.
+function MenuItem({ item, index }) {
+  return (
+    <li key={`${item.name}-${index}`} className="menu__item">
+      <div className="menu__item-head">
+        <span className="menu__item-name">
+          {item.name}
+          {item.tags?.map((t) => (
+            <span key={t} className="menu__tag" title={TAGS[t]?.title}>
+              {TAGS[t]?.label}
+            </span>
+          ))}
+        </span>
+        {item.price != null && (
+          <>
+            <span className="menu__dots" aria-hidden="true" />
+            <span className="menu__price">€&nbsp;{item.price.toFixed(2)}</span>
+          </>
+        )}
+      </div>
+      {item.description && <p className="menu__desc">{item.description}</p>}
+    </li>
+  )
+}
+
 function Menu() {
   return (
     <section className="menu">
@@ -24,29 +49,30 @@ function Menu() {
         ))}
       </nav>
 
-      {menu.map(({ category, items }) => (
+      {menu.map(({ category, items, groups }) => (
         <div key={category} id={slug(category)} className="menu__section">
           <h3 className="menu__category">{category}</h3>
 
-          <ul className="menu__list">
-            {items.map((item) => (
-              <li key={item.name} className="menu__item">
-                <div className="menu__item-head">
-                  <span className="menu__item-name">
-                    {item.name}
-                    {item.tags?.map((t) => (
-                      <span key={t} className="menu__tag" title={TAGS[t]?.title}>
-                        {TAGS[t]?.label}
-                      </span>
+          {/* Grouped categories (e.g. Pizze) render a separator per group;
+              simple categories render their items directly. */}
+          {groups
+            ? groups.map((group) => (
+                <div key={group.label} className="menu__group">
+                  <h4 className="menu__group-title">{group.label}</h4>
+                  <ul className="menu__list">
+                    {group.items.map((item, i) => (
+                      <MenuItem key={`${item.name}-${i}`} item={item} index={i} />
                     ))}
-                  </span>
-                  <span className="menu__dots" aria-hidden="true" />
-                  <span className="menu__price">€&nbsp;{item.price.toFixed(2)}</span>
+                  </ul>
                 </div>
-                <p className="menu__desc">{item.description}</p>
-              </li>
-            ))}
-          </ul>
+              ))
+            : (
+                <ul className="menu__list">
+                  {items.map((item, i) => (
+                    <MenuItem key={`${item.name}-${i}`} item={item} index={i} />
+                  ))}
+                </ul>
+              )}
         </div>
       ))}
     </section>
