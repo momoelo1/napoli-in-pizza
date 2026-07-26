@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { sections } from '../sections'
 import './BottomTabs.css'
 
@@ -11,6 +12,13 @@ function BottomTabs({ active, onSelect }) {
           className={`tabs__btn${active === key ? ' tabs__btn--active' : ''}`}
           onClick={() => onSelect(key)}
         >
+          {active === key && (
+            <motion.span
+              layoutId="tabs__indicator"
+              className="tabs__indicator"
+              transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+            />
+          )}
           <span className="tabs__icon">{icon}</span>
           <span className="tabs__label">{label}</span>
         </button>

@@ -12,6 +12,7 @@
 }
 
 .tabs__btn {
+  position: relative;
   flex: 1;
   min-width: 0; /* allow even shrink on narrow screens */
   display: flex;
@@ -25,6 +26,18 @@
   font: inherit;
   cursor: pointer;
   transition: color 0.2s;
+}
+
+.tabs__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  width: 28px;
+  height: 3px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: var(--gold);
 }
 
 .tabs__btn--active {

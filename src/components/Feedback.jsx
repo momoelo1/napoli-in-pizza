@@ -4,7 +4,7 @@ import './Feedback.css'
 // ── Email delivery config ───────────────────────────────────────────────
 // Using Web3Forms (free, no backend). Get a key at https://web3forms.com
 // and paste it below. Until then, submitting shows a "not configured" notice.
-const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'
+const WEB3FORMS_ACCESS_KEY = 'b97da326-6471-4f13-a4e7-a29b5b3c2c8e'
 // ────────────────────────────────────────────────────────────────────────
 
 function Feedback() {

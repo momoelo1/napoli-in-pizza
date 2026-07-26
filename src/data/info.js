@@ -15,12 +15,13 @@ export const about = {
 
 export const contact = {
   title: "Dove siamo",
-  address: "Via Toledo 123, 80132 Napoli (NA)",
-  phone: "+39 081 123 4567",
-  mapsUrl: "https://maps.google.com/?q=Via+Toledo+123+Napoli",
+  address: "Via Camillo Benso di Cavour, 48, 26900 Lodi (LO)",
+  phone: "+39 347 822 0169",
+  mapsUrl: "https://maps.google.com/?q=Via+Camillo+Benso+di+Cavour+48+26900+Lodi+LO",
+  whatsappUrl: "https://wa.me/393478220169",
   hours: [
-    { days: "Lun – Ven", time: "18:00 – 23:30" },
-    { days: "Sabato", time: "12:00 – 15:00 · 18:00 – 24:00" },
-    { days: "Domenica", time: "12:00 – 15:00 · 18:00 – 23:30" },
+    { days: "Lun – Mar", time: "Chiuso" },
+    { days: "Mer – Sab", time: "12:30 – 15:00 · 19:00 – 22:30" },
+    { days: "Domenica", time: "19:00 – 22:30" },
   ],
 };

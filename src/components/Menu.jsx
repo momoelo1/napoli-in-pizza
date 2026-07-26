@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { menu } from '../data/menu'
 import './Menu.css'
 
@@ -7,7 +8,7 @@ const TAGS = {
   piccante: { label: '🌶️', title: 'Piccante' },
 }
 
-// Build a URL-safe id from a category name, used for the sticky-nav anchors.
+// Build a URL-safe id from a category name.
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
 // One item row: name (+ tag pills), dotted leader and optional price.
@@ -36,45 +37,50 @@ function MenuItem({ item, index }) {
 }
 
 function Menu() {
+  const [activeCategory, setActiveCategory] = useState(menu[0].category)
+  const current = menu.find(({ category }) => category === activeCategory)
+
   return (
     <section className="menu">
       <h2 className="menu__title">Il Menù</h2>
 
-      {/* Sticky category nav — scrolls horizontally on small screens */}
+      {/* Category tabs — only the selected category's items are shown below */}
       <nav className="menu__nav">
         {menu.map(({ category }) => (
-          <a key={category} href={`#${slug(category)}`} className="menu__nav-link">
+          <button
+            key={category}
+            className={`menu__nav-link${activeCategory === category ? ' menu__nav-link--active' : ''}`}
+            onClick={() => setActiveCategory(category)}
+          >
             {category}
-          </a>
+          </button>
         ))}
       </nav>
 
-      {menu.map(({ category, items, groups }) => (
-        <div key={category} id={slug(category)} className="menu__section">
-          <h3 className="menu__category">{category}</h3>
+      <div key={current.category} id={slug(current.category)} className="menu__section">
+        <h3 className="menu__category">{current.category}</h3>
 
-          {/* Grouped categories (e.g. Pizze) render a separator per group;
-              simple categories render their items directly. */}
-          {groups
-            ? groups.map((group) => (
-                <div key={group.label} className="menu__group">
-                  <h4 className="menu__group-title">{group.label}</h4>
-                  <ul className="menu__list">
-                    {group.items.map((item, i) => (
-                      <MenuItem key={`${item.name}-${i}`} item={item} index={i} />
-                    ))}
-                  </ul>
-                </div>
-              ))
-            : (
+        {/* Grouped categories (e.g. Pizze) render a separator per group;
+            simple categories render their items directly. */}
+        {current.groups
+          ? current.groups.map((group) => (
+              <div key={group.label} className="menu__group">
+                <h4 className="menu__group-title">{group.label}</h4>
                 <ul className="menu__list">
-                  {items.map((item, i) => (
+                  {group.items.map((item, i) => (
                     <MenuItem key={`${item.name}-${i}`} item={item} index={i} />
                   ))}
                 </ul>
-              )}
-        </div>
-      ))}
+              </div>
+            ))
+          : (
+              <ul className="menu__list">
+                {current.items.map((item, i) => (
+                  <MenuItem key={`${item.name}-${i}`} item={item} index={i} />
+                ))}
+              </ul>
+            )}
+      </div>
     </section>
   )
 }

@@ -1,10 +1,3 @@
-
-
-// A category becomes one button in the menu nav.
-// - Simple categories have `items`.
-// - The "Pizze" category uses `groups` instead: each group renders as a
-//   separator (sub-heading) inside the same button. Item shape is identical
-//   either way: { name, description?, price?, tags? }. Price is optional.
 export const menu = [
   {
     category: "Pizze",

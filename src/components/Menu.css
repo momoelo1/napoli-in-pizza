@@ -24,9 +24,11 @@
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding: 12px 4px;
+  padding: 2px 4px 12px;
   margin: 0 -4px 8px;
-  background: var(--brown);
+  background: rgba(37, 20, 4, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -38,14 +40,18 @@
   padding: 7px 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
+  background: transparent;
+  font: inherit;
   font-size: 0.85rem;
   color: var(--cream);
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 .menu__nav-link:hover,
-.menu__nav-link:active {
+.menu__nav-link:active,
+.menu__nav-link--active {
   background: var(--gold);
   color: var(--brown);
 }

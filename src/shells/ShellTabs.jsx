@@ -16,7 +16,7 @@ function ShellTabs() {
   const ActiveSection = sections.find((s) => s.key === view).Component
 
   return (
-    <div className="app">
+    <div className="app fade-in">
       <header className="app__header">
         <button className="app__home" onClick={() => setView(null)} aria-label="Home">
           <img src={logo} alt="Napoli in Pizza" className="logo" />
@@ -24,7 +24,9 @@ function ShellTabs() {
       </header>
 
       <main className="app__main">
-        <ActiveSection />
+        <div key={view} className="fade-in">
+          <ActiveSection />
+        </div>
       </main>
 
       <BottomTabs active={view} onSelect={setView} />

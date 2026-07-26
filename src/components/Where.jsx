@@ -21,6 +21,9 @@ function Where() {
             {contact.phone}
           </a>
         </p>
+        <a className="where__btn" href={contact.whatsappUrl} target="_blank" rel="noreferrer">
+          Prenota su WhatsApp
+        </a>
       </div>
 
       <div className="where__block">
